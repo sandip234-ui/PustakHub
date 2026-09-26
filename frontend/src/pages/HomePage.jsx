@@ -14,11 +14,13 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import {
   Activity,
+  AlertTriangle,
   ArrowRight,
   BookOpen,
   CheckCircle,
   ChevronRight,
   Database,
+  HelpCircle,
   ShieldCheck,
   Users,
   XCircle,
@@ -51,11 +53,80 @@ function FeaturePill({ icon: Icon, label }) {
   );
 }
 
-function StatusDot({ ok }) {
+function getStatusMeta(statusStr) {
+  if (!statusStr) {
+    return {
+      type: "unknown",
+      color: "var(--text-muted)",
+      dotClass: "bg-gray-400",
+      pulse: false,
+      Icon: HelpCircle,
+    };
+  }
+
+  const normalized = String(statusStr).toLowerCase().trim();
+
+  if (
+    normalized === "healthy" ||
+    normalized === "ok" ||
+    normalized === "connected" ||
+    normalized === "running" ||
+    normalized === "up"
+  ) {
+    return {
+      type: "healthy",
+      color: "var(--success-text)",
+      dotClass: "bg-emerald-400",
+      pulse: true,
+      Icon: CheckCircle,
+    };
+  }
+
+  if (
+    normalized === "degraded" ||
+    normalized === "warning" ||
+    normalized === "partial"
+  ) {
+    return {
+      type: "degraded",
+      color: "var(--warning-text)",
+      dotClass: "bg-amber-400",
+      pulse: false,
+      Icon: AlertTriangle,
+    };
+  }
+
+  if (
+    normalized === "unhealthy" ||
+    normalized === "unreachable" ||
+    normalized === "error" ||
+    normalized === "failed" ||
+    normalized === "down"
+  ) {
+    return {
+      type: "unhealthy",
+      color: "var(--danger-text)",
+      dotClass: "bg-red-400",
+      pulse: false,
+      Icon: XCircle,
+    };
+  }
+
+  return {
+    type: "unknown",
+    color: "var(--text-muted)",
+    dotClass: "bg-gray-400",
+    pulse: false,
+    Icon: HelpCircle,
+  };
+}
+
+function StatusDot({ status, ok }) {
+  const meta = status !== undefined ? getStatusMeta(status) : getStatusMeta(ok ? "healthy" : "unhealthy");
   return (
     <span
-      className={`inline-flex h-2 w-2 rounded-full ${ok ? "bg-emerald-400" : "bg-red-400"}`}
-      style={ok ? { animation: "pulse-glow 2s ease-in-out infinite" } : {}}
+      className={`inline-flex h-2 w-2 rounded-full ${meta.dotClass}`}
+      style={meta.pulse ? { animation: "pulse-glow 2s ease-in-out infinite" } : {}}
     />
   );
 }
@@ -258,13 +329,20 @@ function HomePage() {
                 >
                   System Status
                 </span>
-                <span
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold"
-                  style={{ color: "var(--success-text)" }}
-                >
-                  <StatusDot ok />
-                  {health.status}
-                </span>
+                {(() => {
+                  const overallMeta = getStatusMeta(health.status);
+                  const OverallIcon = overallMeta.Icon;
+                  return (
+                    <span
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold"
+                      style={{ color: overallMeta.color }}
+                    >
+                      <StatusDot status={health.status} />
+                      <OverallIcon size={12} className="inline" />
+                      <span>{health.status}</span>
+                    </span>
+                  );
+                })()}
               </div>
 
               <div className="grid grid-cols-2 gap-3 text-xs">
@@ -275,37 +353,46 @@ function HomePage() {
                     label: "Database",
                     value: health.database,
                     icon: Database,
-                    ok: health.database?.toLowerCase().includes("connected") || health.database === "ok",
+                    status: health.database,
                   },
                   {
                     label: "Redis",
                     value: health.redis,
                     icon: Zap,
-                    ok: health.redis?.toLowerCase().includes("connected") || health.redis === "ok",
+                    status: health.redis,
                   },
-                ].map(({ label, value, icon: Icon, ok }) => (
-                  <div key={label} className="flex items-start gap-2">
-                    <Icon
-                      size={12}
-                      className="mt-0.5 shrink-0"
-                      style={{ color: ok !== undefined ? (ok ? "var(--success-text)" : "var(--danger-text)") : "var(--text-muted)" }}
-                    />
-                    <div>
-                      <div style={{ color: "var(--text-muted)" }}>{label}</div>
-                      <div
-                        className="font-semibold"
-                        style={{ color: ok !== undefined ? (ok ? "var(--success-text)" : "var(--danger-text)") : "var(--text-primary)" }}
-                      >
-                        {ok !== undefined && (
-                          <span className="inline-block mr-1">
-                            {ok ? <CheckCircle size={10} className="inline" /> : <XCircle size={10} className="inline" />}
-                          </span>
-                        )}
-                        {value}
+                ].map(({ label, value, icon: Icon, status }) => {
+                  const statusMeta = status !== undefined ? getStatusMeta(status) : null;
+                  const StatusIcon = statusMeta ? statusMeta.Icon : null;
+
+                  return (
+                    <div key={label} className="flex items-start gap-2">
+                      <Icon
+                        size={12}
+                        className="mt-0.5 shrink-0"
+                        style={{
+                          color: statusMeta ? statusMeta.color : "var(--text-muted)",
+                        }}
+                      />
+                      <div>
+                        <div style={{ color: "var(--text-muted)" }}>{label}</div>
+                        <div
+                          className="font-semibold"
+                          style={{
+                            color: statusMeta ? statusMeta.color : "var(--text-primary)",
+                          }}
+                        >
+                          {StatusIcon && (
+                            <span className="inline-block mr-1">
+                              <StatusIcon size={10} className="inline" />
+                            </span>
+                          )}
+                          {value}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
