@@ -10,6 +10,7 @@ SECURITY NOTES:
 - The .env file must never be committed to version control.
 """
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -42,6 +43,14 @@ class Settings(BaseSettings):
 
     # --- Database (Phase 2) ---
     DATABASE_URL: str = ""
+
+    @field_validator("DATABASE_URL", mode="before")
+    @classmethod
+    def assemble_db_connection(cls, v: str) -> str:
+        """Ensure standard postgresql:// prefix for SQLAlchemy compatibility."""
+        if isinstance(v, str) and v.startswith("postgres://"):
+            return v.replace("postgres://", "postgresql://", 1)
+        return v
 
     # --- Redis (Phase 3: Temporary Registration & OTP) ---
     REDIS_URL: str = "redis://localhost:6379/0"
