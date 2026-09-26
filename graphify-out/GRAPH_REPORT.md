@@ -1,7 +1,7 @@
 # Graph Report - PustakHub  (2026-09-26)
 
 ## Corpus Check
-- 210 files · ~154,866 words
+- 210 files · ~154,881 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 14 file(s) not represented in the graph (top: (none) 6, .example 3, .ini 2)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `33a394fb`
+- Built from commit: `e4065119`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -620,7 +620,7 @@ Nodes (10): 1. Overview & Objectives, 2. Architecture & Data Model, 2. `GET /api
 
 ### Community 120 - "Settings"
 Cohesion: 0.25
-Nodes (7): field_validator, Central application settings. Values are loaded in order of priority: 1. Actual…, Ensure standard postgresql:// prefix for SQLAlchemy compatibility., Settings, BaseSettings, 9. Configuration Changes, 5. Due-Date & Fine Policy
+Nodes (7): field_validator, Central application settings. Values are loaded in order of priority: 1. Actual…, Ensure standard postgresql+psycopg:// prefix for SQLAlchemy compatibility., Settings, BaseSettings, 9. Configuration Changes, 5. Due-Date & Fine Policy
 
 ### Community 123 - "PHASE_02_REPORT — PostgreSQL & Database Foundation"
 Cohesion: 0.29
@@ -711,7 +711,7 @@ Nodes (3): clean_redis_ratelimits(), fixture, Flush rate limit keys before and a
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `User` connect `User` to `App.jsx`, `test_phase7_auth_security.py`, `_authenticate_ws_token`, `create_test_user`, `2. Architecture & Flows`, `assign_role_to_user`, `AuditAction`, `Verification Matrix`, `4. Entities`, `get_realtime_status`, `books/router.py`, `Session`, `auth_headers`, `catalog_cleanup`, `PustakHub — Authentication & Identity Architecture (Phase 3 & Phase 7)`, `PermissionService`, `PermissionOut`, `seed_demo.py`, `execute_create_admin`, `test_phase9_security_remediation.py`, `auth/router.py`, `auth/service.py`, `AuthService`, `return_book`, `update_user_status`, `AuditService`, `create_access_token`, `test_admin_bootstrap.py`, `Example Workflows`, `BookCopy`, `typing`, `_create_admin`, `check_resource_access`, `test_phase14_dashboard_analytics.py`, `datetime`, `borrowing/service.py`, `Phase 6 Completion Report — Circulation, Borrowing & Fines`?**
-  _High betweenness centrality (0.271) - this node is a cross-community bridge._
+  _High betweenness centrality (0.270) - this node is a cross-community bridge._
 - **Why does `Key Highlights` connect `App.jsx` to `User`, `Phase 3 Completion Report — PustakHub`?**
   _High betweenness centrality (0.125) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `App.jsx` to `react`, `UserDetailsPage.jsx`, `DashboardPreviewPage.jsx`, `Navbar.jsx`, `usePermissions`, `AuditPage.jsx`, `react-router-dom`?**

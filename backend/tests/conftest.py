@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 # Ensure tests run against the dedicated test database
 TEST_DB_URL = os.getenv(
     "TEST_DATABASE_URL",
-    "postgresql+psycopg2://sandipbiswal@localhost:5432/pustakhub_test",
+    "postgresql+psycopg://sandipbiswal@localhost:5432/pustakhub_test",
 )
 os.environ["DATABASE_URL"] = TEST_DB_URL
 

@@ -12,16 +12,16 @@
     "semantic_hash": "465779b129b335d6257871e66a984539"
   },
   "backend/app/core/config.py": {
-    "mtime": 1790405293.7059546,
-    "seen": 1790405350.772639,
-    "ast_hash": "c0e004ceb35bad6c80378ec0670aa341",
+    "mtime": 1790411534.5042026,
+    "seen": 1790411692.774339,
+    "ast_hash": "18c58cfa491b786894f9f3f131d08cc2",
     "semantic_hash": ""
   },
   "backend/app/core/database.py": {
-    "mtime": 1790229688.207385,
-    "seen": 1790230615.419575,
-    "ast_hash": "67cebd350d8a8811b311858d4f6f0859",
-    "semantic_hash": "67cebd350d8a8811b311858d4f6f0859"
+    "mtime": 1790411549.1510994,
+    "seen": 1790411692.774341,
+    "ast_hash": "ec6ddb572791d60c43ea4bdd824f06e3",
+    "semantic_hash": ""
   },
   "backend/app/core/exceptions.py": {
     "mtime": 1790260590.258297,
@@ -192,9 +192,9 @@
     "semantic_hash": "8d771d95e254e5e632c1dcfdef3bd38a"
   },
   "backend/tests/conftest.py": {
-    "mtime": 1790327218.25755,
-    "seen": 1790327849.966313,
-    "ast_hash": "793849d181fad5dc6c5d6cdb5b1d7937",
+    "mtime": 1790411568.4752,
+    "seen": 1790411692.774417,
+    "ast_hash": "dbbccbb40187611370b4034eb3e98e90",
     "semantic_hash": ""
   },
   "backend/tests/test_phase1_foundation.py": {
@@ -222,8 +222,8 @@
     "semantic_hash": ""
   },
   "frontend/src/App.jsx": {
-    "mtime": 1790276188.7838385,
-    "seen": 1790406401.3802722,
+    "mtime": 1790276187.7838385,
+    "seen": 1790411692.774438,
     "ast_hash": "b976ebeca068a9a1bd73f99d34f1fbd8",
     "semantic_hash": ""
   },
@@ -270,8 +270,8 @@
     "semantic_hash": "b38cc02c7e9f6de181a90e5fba10d437"
   },
   "frontend/src/services/api.js": {
-    "mtime": 1790260624.342387,
-    "seen": 1790406401.38033,
+    "mtime": 1790260623.342387,
+    "seen": 1790411692.774494,
     "ast_hash": "4add936942499be8c7945380698f4761",
     "semantic_hash": ""
   },
@@ -306,9 +306,9 @@
     "semantic_hash": ""
   },
   "backend/requirements.txt": {
-    "mtime": 1790259464.683242,
-    "seen": 1790260092.23348,
-    "ast_hash": "5cfe1307f17d4ee9e1b31eeccbb2fe9f",
+    "mtime": 1790411524.5010028,
+    "seen": 1790411692.774508,
+    "ast_hash": "188031f2f7186176b2f578cd30593c03",
     "semantic_hash": ""
   },
   "docs/architecture.md": {
@@ -906,8 +906,8 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/CatalogPage.jsx": {
-    "mtime": 1790397763.0263026,
-    "seen": 1790406401.380314,
+    "mtime": 1790397762.0263026,
+    "seen": 1790411692.7744792,
     "ast_hash": "abb3942a50e930fa0b06bbef8c986865",
     "semantic_hash": ""
   },

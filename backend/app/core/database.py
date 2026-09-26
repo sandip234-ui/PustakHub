@@ -34,7 +34,7 @@ if not _db_url:
     )
 
 engine = create_engine(
-    _db_url or "postgresql+psycopg2://",  # placeholder keeps engine import-safe
+    _db_url or "postgresql+psycopg://",  # placeholder keeps engine import-safe
     # Connection pool settings suited for a FastAPI / Uvicorn deployment.
     pool_pre_ping=True,       # test connections before handing them from the pool
     pool_size=5,              # idle connections kept open

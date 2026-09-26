@@ -3760,7 +3760,7 @@
       "file_type": "code",
       "norm_label": ".cors_origins_list()",
       "source_file": "backend/app/core/config.py",
-      "source_location": "L120"
+      "source_location": "L125"
     },
     {
       "id": "backend_app_core_logging_configure_logging",
@@ -12051,12 +12051,12 @@
     },
     {
       "id": "backend_app_core_config_rationale_50",
-      "label": "Ensure standard postgresql:// prefix for SQLAlchemy compatibility.",
+      "label": "Ensure standard postgresql+psycopg:// prefix for SQLAlchemy compatibility.",
       "_origin": "ast",
       "community": 120,
       "community_name": "Settings",
       "file_type": "rationale",
-      "norm_label": "ensure standard postgresql:// prefix for sqlalchemy compatibility.",
+      "norm_label": "ensure standard postgresql+psycopg:// prefix for sqlalchemy compatibility.",
       "source_file": "backend/app/core/config.py",
       "source_location": "L50"
     },
@@ -13972,7 +13972,7 @@
       "source_location": "L41"
     },
     {
-      "id": "backend_app_core_config_rationale_121",
+      "id": "backend_app_core_config_rationale_126",
       "label": "Parse CORS_ORIGINS from comma-separated string into a list.",
       "_origin": "ast",
       "community": 144,
@@ -13980,7 +13980,7 @@
       "file_type": "rationale",
       "norm_label": "parse cors_origins from comma-separated string into a list.",
       "source_file": "backend/app/core/config.py",
-      "source_location": "L121"
+      "source_location": "L126"
     },
     {
       "id": "backend_app_core_logging_rationale_20",
@@ -80283,7 +80283,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/app/core/config.py",
-      "source_location": "L120",
+      "source_location": "L125",
       "weight": 1.0
     },
     {
@@ -82465,14 +82465,14 @@
       "weight": 1.0
     },
     {
-      "source": "backend_app_core_config_rationale_121",
+      "source": "backend_app_core_config_rationale_126",
       "target": "backend_app_core_config_settings_cors_origins_list",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/app/core/config.py",
-      "source_location": "L121",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -97781,5 +97781,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "33a394fb4c28ab973524d7bd15765b2cc5401a52"
+  "built_at_commit": "e4065119ab815f05820f779186153cc5d1e022df"
 }

@@ -47,9 +47,14 @@ class Settings(BaseSettings):
     @field_validator("DATABASE_URL", mode="before")
     @classmethod
     def assemble_db_connection(cls, v: str) -> str:
-        """Ensure standard postgresql:// prefix for SQLAlchemy compatibility."""
-        if isinstance(v, str) and v.startswith("postgres://"):
-            return v.replace("postgres://", "postgresql://", 1)
+        """Ensure standard postgresql+psycopg:// prefix for SQLAlchemy compatibility."""
+        if isinstance(v, str):
+            if v.startswith("postgres://"):
+                return v.replace("postgres://", "postgresql+psycopg://", 1)
+            if v.startswith("postgresql+psycopg2://"):
+                return v.replace("postgresql+psycopg2://", "postgresql+psycopg://", 1)
+            if v.startswith("postgresql://") and not v.startswith("postgresql+"):
+                return v.replace("postgresql://", "postgresql+psycopg://", 1)
         return v
 
     # --- Redis (Phase 3: Temporary Registration & OTP) ---
