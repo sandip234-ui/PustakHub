@@ -1,0 +1,104 @@
+# ============================================================
+# PustakHub — Root .gitignore
+# ============================================================
+
+# ---- Python / Backend ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+*.whl
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+venv/
+.venv/
+backend/venv/
+*/venv/
+env/
+.env_backup/
+
+# Environment secrets — NEVER commit these
+.env
+.env.*
+*.env
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# pytest / test caches
+.pytest_cache/
+backend/.pytest_cache/
+.tox/
+.cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# mypy / ruff / type checking
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+
+# Alembic
+# (migration scripts in migrations/versions/*.py MUST be committed)
+*.pyc
+
+# Database dumps and local backups — NEVER commit database dumps
+*.sql
+backup_*.sql
+*_backup.sql
+*.dump
+
+# ---- Node / Frontend ----
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build output
+dist/
+build/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vite/
+*.local
+
+# ---- Graphify ----
+# Knowledge graph cache (derived AST indexes)
+graphify-out/cache/
+
+# ---- IDE / Editors ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ---- Logs ----
+logs/
+*.log
+
+# ---- OS Metadata ----
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+

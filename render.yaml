@@ -1,0 +1,61 @@
+services:
+  # Backend Web Service (FastAPI + Uvicorn)
+  - type: web
+    name: pustakhub-api
+    runtime: python
+    rootDir: backend
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt && alembic upgrade head"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: pustakhub-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: pustakhub-redis
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: MFA_ENCRYPTION_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: RATE_LIMIT_ENABLED
+        value: "true"
+      - key: ENABLE_SECURITY_HEADERS
+        value: "true"
+      - key: ENABLE_CSP
+        value: "true"
+      - key: ENABLE_HSTS
+        value: "true"
+      - key: HSTS_MAX_AGE
+        value: "31536000"
+
+  # Internal Redis Instance
+  - type: redis
+    name: pustakhub-redis
+    plan: free
+    ipAllowList: [] # internal only
+
+databases:
+  # Managed PostgreSQL Database
+  - name: pustakhub-db
+    databaseName: pustakhub
+    user: pustakhub_user
+    plan: free
+    postgresMajorVersion: 16
