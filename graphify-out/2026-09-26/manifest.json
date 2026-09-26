@@ -341,12 +341,6 @@
     "ast_hash": "920487b1e43ec5a15a7c0eafc20f1dfa",
     "semantic_hash": ""
   },
-  "frontend/README.md": {
-    "mtime": 1790225205.48813,
-    "seen": 1790230900.348761,
-    "ast_hash": "a28dc4cb878325f3e9e5649f3e1469ac",
-    "semantic_hash": ""
-  },
   "frontend/index.html": {
     "mtime": 1790276167.1004987,
     "seen": 1790278387.6737149,
@@ -822,9 +816,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1790274779.0525694,
-    "seen": 1790274788.0931451,
-    "ast_hash": "a3b4c9cd6ce4bb0c169a2630a3f10cfc",
+    "mtime": 1790404283.1087172,
+    "seen": 1790404422.393686,
+    "ast_hash": "d819df44c32f3d4b9661fc24fa5fef67",
     "semantic_hash": ""
   },
   "backend/scripts/seed_demo.py": {
@@ -1293,6 +1287,30 @@
     "mtime": 1790396414.600895,
     "seen": 1790397782.2781482,
     "ast_hash": "2cc20c6a0efb57399353fd6e099c9539",
+    "semantic_hash": ""
+  },
+  "frontend/vercel.json": {
+    "mtime": 1790403967.6703434,
+    "seen": 1790404422.3936808,
+    "ast_hash": "cf6fad1ce721da13630f9f3e7b81fd0c",
+    "semantic_hash": ""
+  },
+  "docker-compose.yml": {
+    "mtime": 1790404046.8493536,
+    "seen": 1790404422.393688,
+    "ast_hash": "2108200404dfa4cfdb1185b4584e9581",
+    "semantic_hash": ""
+  },
+  "docs/deployment.md": {
+    "mtime": 1790404060.683371,
+    "seen": 1790404422.3936992,
+    "ast_hash": "6b45c416a8d3c2ba6977670b698bfd6d",
+    "semantic_hash": ""
+  },
+  "render.yaml": {
+    "mtime": 1790404012.6081612,
+    "seen": 1790404422.393732,
+    "ast_hash": "2bc6cd7068f6a626d85bdeb5c026b6f3",
     "semantic_hash": ""
   }
 }

@@ -1,12 +1,12 @@
 # Graph Report - PustakHub  (2026-09-26)
 
 ## Corpus Check
-- 210 files · ~321,498 words
+- 210 files · ~154,835 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 10 file(s) not represented in the graph (top: .example 3, (none) 3, .ini 2)
+- Unclassified: 14 file(s) not represented in the graph (top: (none) 6, .example 3, .ini 2)
 
 ## Summary
-- 2537 nodes · 5860 edges · 136 communities (116 shown, 20 thin omitted)
+- 2548 nodes · 5870 edges · 142 communities (124 shown, 18 thin omitted)
 - Extraction: 86% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 797 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
@@ -15,46 +15,46 @@
 - App.jsx
 - Phase 3 Completion Report — PustakHub
 - package.json
-- create_test_user
+- Role
 - exceptions.py
 - test_phase1_foundation.py
-- books/service.py
+- books/router.py
 - AuditAction
 - PustakHub — Post-Remediation Security Verification Report
-- Verification Matrix
+- test_phase2_database.py
 - PustakHub — Password Reset Frontend Flow Implementation & Verification Report
 - BookCopy
 - PustakHub — Phase 12 Report
 - auth/router.py
-- books/router.py
-- auth_headers
+- AppPermission
+- TestRoleAssignmentRevocationAndSelfLockout
 - Phase 13 Implementation Report — Circulation & Borrowing UI
 - catalog_cleanup
-- 0438258645fa_initial_schema.py
+- env.py
 - PustakHub — Authentication & Identity Architecture (Phase 3 & Phase 7)
-- Phase 15 Report — User & IAM Administration UI
+- PermissionService
 - PustakHub — Phase 11 Demo Data & Seed System
 - _validate_password
-- Role
+- permissions/router.py
 - PustakHub — Role-Based Access Control (RBAC) & Audit Logging
-- Settings
+- Phase 2 Final Verification Report — PustakHub
 - PustakHub — Final UI/UX Polish Pass Completion Report
-- React + Vite
-- seed_database
+- TestClient
+- seed_demo.py
 - rules/graphify.md
 - workflows/graphify.md
 - test_admin_bootstrap.py
 - PustakHub — Final Security & Architecture Audit Report
-- UserDetailsPage.jsx
+- HomePage.jsx
 - PustakHub — Phase 7 Engineering & Verification Report
 - PustakHub — Library Catalog Management
 - test_phase9_security_remediation.py
-- RegisterRequest
+- auth/schemas.py
 - PustakHub — System Architecture
 - categoryIcons.js
 - Phase 4 Completion Report — PustakHub
-- test_phase3_auth.py
-- RealtimeEvent
+- AccountStatus
+- ConnectionManager
 - PustakHub — Circulation, Borrowing & Fines Architecture
 - Navbar.jsx
 - Circulation & Borrowing UI Architecture (`docs/circulation-ui.md`)
@@ -63,78 +63,84 @@
 - auth_headers
 - usePermissions
 - Real-Time Update Architecture & Specification
-- cli.py
+- fines/router.py
 - Phase 14 Implementation Report — Dashboard & Operational Analytics UI
 - react-router-dom
 - react
 - PustakHub — Phase 8 Engineering & Verification Report
 - Phase 1 Report — Foundation & Architecture
 - PustakHub — API Rate Limiting & Security Hardening (Phase 8)
-- .initiate_registration
+- AuthService
 - 4. Entities
-- return_book
+- borrowing/router.py
 - PustakHub — Administrator Account Reconciliation Report
-- test_phase13_circulation_ui.py
+- users/router.py
 - Key Features
-- require_any_permission
-- AuditLog
+- Phase 15 Report — User & IAM Administration UI
+- audit/service.py
 - PustakHub
 - PHASE 17 REPORT: Real-Time Update Layer & Architecture Completion
 - RealtimeClient
 - PustakHub — Demo Data & Seed Subsystem
-- AuthService
+- auth/service.py
 - Phase 16 Verification & Implementation Report: Audit Management UI
 - PustakHub UI & Theme Design System
 - PustakHub — Final Runtime Integration & Bug-Fix Report
-- get_optional_current_user
+- get_current_user
 - Running Locally
 - Technology Stack
 - Example Workflows
 - manager.py
-- test_phase2_database.py
-- BorrowRecordOut
+- user.py
+- BorrowStatus
 - Environment Configuration
 - Installation
 - Demo Data
-- logging.py
+- typing
 - EmailService
 - db
-- RealtimeEventType
+- publish_realtime_event
 - clean_redis
 - email.py
 - 4. Feature Workflows
 - Dashboard & Operational Analytics UI Architecture (`docs/dashboard-ui.md`)
-- auth/service.py
-- publish_realtime_event
+- MfaStatusResponse
+- TestWebSocketEventDeliveryAndScoping
 - check_resource_access
 - RequestSizeLimitMiddleware
 - User & IAM Administration Architecture
 - DashboardPreviewPage.jsx
-- _authenticate_ws_token
-- setup_test_database
+- PustakHub — Production Deployment Guide
+- clean_redis_ratelimits_global
 - test_phase8_security_hardening.py
-- test_phase14_dashboard_analytics.py
+- _auth_headers
 - TestWebSocketAuthentication
-- require_permission
-- 2. Architecture & Flows
-- 5. Dependencies
+- borrowing/schemas.py
+- auth_headers
+- SecurityHeadersMiddleware
 - TestRealtimeStatusEndpoint
-- Backend
-- seed_demo.py
+- get_db
+- borrowing/service.py
 - PustakHub — Audit Management & Forensic Logging Architecture
-- .send_registration_otp
+- TestAccountStatusTransitionsAndSelfLockout
 - Frontend
 - Testing
-- ForgotPasswordRequest
+- TestUserDetailsAndPermissions
 - PustakHub — Password Reset One-Click Link Implementation & Verification Report
 - AuditPage.jsx
 - Phase 6 Completion Report — Circulation, Borrowing & Fines
-- get_realtime_status
-- db_session
+- AuditContextMiddleware
+- RateLimitMiddleware
+- UserStatusUpdateRequest
+- .check_rate_limit
 - User
+- 9. Tests
 - 27. Findings
+- 2. Architecture & Flows
 - roles/router.py
 - TestPublicRegistrationIntegrity
+- TestWebSocketHeartbeat
+- vercel.json
 - main.py
 - 5. Authentication Security
 
@@ -155,101 +161,105 @@
   docs/circulation.md → backend/app/core/config.py
 - `1.1 Backend Configuration (`backend/app/core/config.py`, `.env`, `.env.example`)` --references--> `Settings`  [INFERRED]
   docs/reports/PASSWORD_RESET_LINK_REPORT.md → backend/app/core/config.py
+- `5. Due-Date & Fine Policy` --references--> `Settings`  [INFERRED]
+  docs/reports/PHASE_06_REPORT.md → backend/app/core/config.py
 - `4.1 Database Configuration` --references--> `check_database_connection()`  [INFERRED]
   docs/reports/PHASE_02_VERIFICATION.md → backend/app/core/database.py
 - `Summary of Completed Remediation:` --references--> `RequestSizeLimitMiddleware`  [INFERRED]
   docs/reports/PHASE_09_REPORT.md → backend/app/middleware/request_size.py
-- `6. Database Changes` --references--> `AuditAction`  [INFERRED]
-  docs/reports/PHASE_04_REPORT.md → backend/app/models/audit_log.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (136 total, 20 thin omitted)
+## Communities (142 total, 18 thin omitted)
 
 ### Community 0 - "NotFoundError"
 Cohesion: 0.10
-Nodes (31): ConflictError, NotFoundError, Raised when a requested resource does not exist., Raised when a resource conflict occurs (e.g., duplicate entry)., BookOut, CategoryOut, Response payload for Book entity., Response payload for Category entity. (+23 more)
+Nodes (29): ConflictError, NotFoundError, Raised when a requested resource does not exist., Raised when a resource conflict occurs (e.g., duplicate entry)., BookOut, CategoryOut, Response payload for Book entity., Response payload for Category entity. (+21 more)
 
 ### Community 1 - "App.jsx"
-Cohesion: 0.12
+Cohesion: 0.11
 Nodes (26): 6. Frontend Authentication Routing, 14. Next Phase, 4. Files Modified, Key Highlights, 5. Routes, App(), GuestRoute(), AuthProvider() (+18 more)
 
 ### Community 2 - "Phase 3 Completion Report — PustakHub"
-Cohesion: 0.14
-Nodes (13): 10. Automated Tests Execution, 11. Manual Verification, 12. Known Issues, 13. Deferred Work, 14. Final Status, 1. Summary, 3. Files Created, 6. Database Changes (+5 more)
+Cohesion: 0.11
+Nodes (17): 10. Automated Tests Execution, 11. Manual Verification, 12. Known Issues, 13. Deferred Work, 14. Final Status, 1. Summary, 3. Files Created, 5. Dependencies (+9 more)
 
 ### Community 3 - "package.json"
 Cohesion: 0.05
-Nodes (43): dependencies, axios, lucide-react, motion, qrcode.react, react, react-dom, react-router-dom (+35 more)
+Nodes (44): dependencies, axios, lucide-react, motion, qrcode.react, react, react-dom, react-router-dom (+36 more)
 
-### Community 4 - "create_test_user"
-Cohesion: 0.10
-Nodes (26): create_test_user(), _create(), TestClient, Unauthenticated request to permission-protected route returns 401 Unauthorized., Authenticated STUDENT lacks 'permission:view' and receives 403 Forbidden., Authenticated ADMIN has permissions and is granted access (200 OK)., Librarian has user:view but lacks role:create., Any authenticated user can view their own effective permissions via GET… (+18 more)
+### Community 4 - "Role"
+Cohesion: 0.05
+Nodes (61): Permission, Named application permission., Application role (e.g., ADMIN, LIBRARIAN, STUDENT, GUEST). Roles are assigned…, Role, AppRole, normalize_permission_name(), RBAC permission constants, role definitions, and role-permission matrix.…, Normalize permission string to canonical 'resource:action' format. Accepts… (+53 more)
 
 ### Community 5 - "exceptions.py"
 Cohesion: 0.10
 Nodes (32): _error_json(), ErrorResponse, ForbiddenError, pustak_hub_exception_handler(), PustakHubError, BaseModel, FastAPI, Request (+24 more)
 
 ### Community 6 - "test_phase1_foundation.py"
-Cohesion: 0.12
-Nodes (25): TestClient, Phase 1 foundation tests. Verifies: 1. FastAPI application starts without…, app.main imports cleanly and exposes an `app` object., Requesting a non-existent route returns HTTP 404., A preflight-like GET from the expected origin receives the CORS header., FastAPI application initialises and the test client is usable., GET / returns 200 with expected JSON keys., GET /api/health returns HTTP 200. (+17 more)
+Cohesion: 0.10
+Nodes (29): Central application settings. Values are loaded in order of priority: 1. Actual…, Settings, TestClient, Phase 1 foundation tests. Verifies: 1. FastAPI application starts without…, app.main imports cleanly and exposes an `app` object., Requesting a non-existent route returns HTTP 404., A preflight-like GET from the expected origin receives the CORS header., FastAPI application initialises and the test client is usable. (+21 more)
 
-### Community 7 - "books/service.py"
-Cohesion: 0.13
-Nodes (26): Library Catalog Module for PustakHub., BookBase, BookCopyCreate, BookCopyListResponse, BookCopyUpdate, BookCreate, BookListResponse, BookUpdate (+18 more)
+### Community 7 - "books/router.py"
+Cohesion: 0.11
+Nodes (39): CopyStatus, str, Physical availability status of a book copy., Library Catalog Module for PustakHub., get_copy(), list_book_copies(), list_books(), list_categories() (+31 more)
 
 ### Community 8 - "AuditAction"
-Cohesion: 0.12
-Nodes (32): AuditAction, AuditStatus, str, Broad category of the audited event., Outcome of the audited action., create_test_user(), fixture, TestClient (+24 more)
+Cohesion: 0.13
+Nodes (31): AuditAction, AuditStatus, str, Broad category of the audited event., Outcome of the audited action., create_test_user(), fixture, TestClient (+23 more)
 
 ### Community 9 - "PustakHub — Post-Remediation Security Verification Report"
 Cohesion: 0.18
 Nodes (11): 10. Conclusion & Final Security Assessment, 1. Verification Summary, 2. Baseline State, 3. SEC-001 Verification — TOTP Encryption, 5. SEC-003 Verification — Local QR Generation & CSP, 6. SEC-004 Verification — Test Warning, 7. SEC-005 Verification — localStorage Decision, 8. MFA End-to-End Verification (+3 more)
 
-### Community 10 - "Verification Matrix"
-Cohesion: 0.08
-Nodes (28): TestClient, _random_email(), _random_name(), check_database_connection() must return True. If this fails, the PostgreSQL…, A real SELECT query executes against the live database., All expected tables actually exist in the PostgreSQL database., Inserting two users with the same email raises IntegrityError., Inserting two roles with the same name raises IntegrityError. (+20 more)
+### Community 10 - "test_phase2_database.py"
+Cohesion: 0.06
+Nodes (42): TestClient, _random_email(), _random_name(), Phase 2 — PostgreSQL & Database Foundation tests. Tests verify: 1.…, check_database_connection() must return True. If this fails, the PostgreSQL…, A real SELECT query executes against the live database., Every model class can be imported from app.models without error., All expected tables are registered in SQLAlchemy Base.metadata. (+34 more)
 
 ### Community 11 - "PustakHub — Password Reset Frontend Flow Implementation & Verification Report"
 Cohesion: 0.17
 Nodes (11): 1. Architecture & Graphify Verification, 2.2 Route Configuration (`frontend/src/App.jsx`), 2.3 Auth Service (`frontend/src/services/auth.service.js`), 2. Implementation Details, 3. Security & IAM Guardrails, 4.1 Backend Test Suite, 4.2 Frontend Quality Gates, 4.3 Browser UI Verification (+3 more)
 
 ### Community 12 - "BookCopy"
-Cohesion: 0.05
-Nodes (71): Book, BookCopy, CopyStatus, str, Physical availability status of a book copy., Physical copy of a book title., Book title record in the library catalogue., BorrowRecord (+63 more)
+Cohesion: 0.07
+Nodes (39): Book, BookCopy, Physical copy of a book title., Book title record in the library catalogue., BorrowRecord, Single borrowing transaction record., TestClient, Verify STUDENT role receives 403 Forbidden when attempting catalog mutations. (+31 more)
 
 ### Community 13 - "PustakHub — Phase 12 Report"
-Cohesion: 0.10
-Nodes (19): 10. Error Handling, 11. Responsive Design, 12. Accessibility, 14. Phase 11 Dataset Verification, 15. Security Verification, 16. Build Verification, 17. Graphify Verification, 18. Files Changed (+11 more)
+Cohesion: 0.07
+Nodes (33): _auth_headers(), TestClient, UUID, Verify that staff can issue an available copy, status transitions, and return…, Verify that an overdue loan calculates and records a fine on return., Verify that students only see their own loans/fines and cannot inspect other…, Verify that students and unauthenticated guests cannot issue or return books., Verify that attempting to issue an already borrowed copy returns 409 Conflict. (+25 more)
 
 ### Community 14 - "auth/router.py"
-Cohesion: 0.23
-Nodes (21): Authentication module package for PustakHub., forgot_password(), login(), logout(), mfa_disable(), mfa_enroll(), mfa_verify(), mfa_verify_enrollment() (+13 more)
+Cohesion: 0.26
+Nodes (19): Authentication module package for PustakHub., forgot_password(), login(), logout(), mfa_disable(), mfa_enroll(), mfa_verify(), mfa_verify_enrollment() (+11 more)
 
-### Community 15 - "books/router.py"
-Cohesion: 0.21
-Nodes (30): create_book(), create_book_copy(), create_category(), delete_book(), delete_category(), delete_copy(), _extract_request_meta(), get_book() (+22 more)
+### Community 15 - "AppPermission"
+Cohesion: 0.26
+Nodes (22): create_book(), create_book_copy(), create_category(), delete_book(), delete_category(), delete_copy(), _extract_request_meta(), get_book() (+14 more)
 
-### Community 16 - "auth_headers"
-Cohesion: 0.06
-Nodes (23): auth_headers(), UUID, Tests for GET /api/v1/users with search and filtering., Tests for GET /api/v1/users/{id} and /api/v1/users/{id}/permissions., Active user is verified; PENDING_VERIFICATION user is not verified., Tests for PATCH /api/v1/users/{id}/status and self-lockout prevention., Admin must NOT be allowed to deactivate their own account., Admin must NOT be allowed to suspend their own account. (+15 more)
+### Community 16 - "TestRoleAssignmentRevocationAndSelfLockout"
+Cohesion: 0.12
+Nodes (8): Tests for Role assignment, revocation, and self-lockout protections., Granting an additional role to a student patron retains STUDENT and appends the…, Admin must NOT be allowed to revoke their own ADMIN role., GET /api/v1/roles must only return supported application roles (ADMIN,…, GET /api/v1/roles?assignable_only=true must only return assignable roles…, Assigning GUEST role to a user account is forbidden (public unauthenticated…, Assigning unsupported/custom role (e.g. ARCHIVIST_TEST) is rejected with 400., TestRoleAssignmentRevocationAndSelfLockout
 
 ### Community 17 - "Phase 13 Implementation Report — Circulation & Borrowing UI"
 Cohesion: 0.12
-Nodes (16): 10. Tests, 11. Database, 12. Demo Data Validation, 14. Documentation, 15. Known Limitations, 16. Final Status, 1. Summary, 2. Routes Added (+8 more)
+Nodes (15): 10. Tests, 11. Database, 12. Demo Data Validation, 14. Documentation, 15. Known Limitations, 16. Final Status, 1. Summary, 3. Components Added / Modified (+7 more)
 
 ### Community 18 - "catalog_cleanup"
 Cohesion: 0.10
-Nodes (29): catalog_cleanup(), create_test_user(), _create(), ensure_rbac_seeded(), fixture, TestClient, Verify unauthenticated catalog mutations reject with 401, while public read…, Test full Category CRUD and unique name validation. (+21 more)
+Nodes (32): catalog_cleanup(), create_test_user(), ensure_rbac_seeded(), fixture, TestClient, Verify unauthenticated catalog mutations reject with 401, while public read…, Test full Category CRUD and unique name validation., Ensure category cannot be deleted while books are attached to it. (+24 more)
+
+### Community 19 - "env.py"
+Cohesion: 0.12
+Nodes (9): alembic, Alembic environment configuration for PustakHub. This file controls how Alembic…, Run migrations in 'online' mode. In online mode, Alembic connects to the…, Run migrations in 'offline' mode. In offline mode, Alembic does not require an…, run_migrations_offline(), run_migrations_online(), logging_config, pathlib (+1 more)
 
 ### Community 20 - "PustakHub — Authentication & Identity Architecture (Phase 3 & Phase 7)"
 Cohesion: 0.11
 Nodes (18): 1. Overview, 2. End-to-End Authentication Architecture, 3.1 Forgot-Password Flow, 3.2 Reset-Password Flow, 3. Password Reset & Account Recovery, 4.1 MFA Enrollment, 4.2 Verify Enrollment & Activation, 4.3 MFA Login Challenge & Verification (+10 more)
 
-### Community 21 - "Phase 15 Report — User & IAM Administration UI"
-Cohesion: 0.06
-Nodes (37): Effective permissions for a user., UserPermissionsOut, PermissionService, Session, Check if user possesses the specified permission (normalized)., Return the current role-permission mapping matrix from the database., Core permission management and resolution service., Idempotently populate standard system roles, permissions, and association… (+29 more)
+### Community 21 - "PermissionService"
+Cohesion: 0.22
+Nodes (8): PermissionService, Session, Check if user possesses the specified permission (normalized)., Return the current role-permission mapping matrix from the database., Core permission management and resolution service., Idempotently populate standard system roles, permissions, and association…, Return all available permissions ordered by name., Authoritatively query and return all effective permission names assigned to the…
 
 ### Community 22 - "PustakHub — Phase 11 Demo Data & Seed System"
 Cohesion: 0.08
@@ -259,41 +269,41 @@ Nodes (23): 10. Production Safety, 11. CLI Usage, 12. Tests, 13. Actual Seeded C
 Cohesion: 0.27
 Nodes (4): Validate password against the application security policy. Returns a list of…, _validate_password(), Verify the CLI reuses the same password rules as RegisterRequest., TestPasswordValidation
 
-### Community 24 - "Role"
-Cohesion: 0.06
-Nodes (70): argon2, argon2_exceptions, get_db(), Session, SQLAlchemy engine, session factory, and FastAPI session dependency. This module…, FastAPI dependency that yields a SQLAlchemy database session. Usage in a route:…, create_access_token(), decode_token() (+62 more)
+### Community 24 - "permissions/router.py"
+Cohesion: 0.23
+Nodes (14): get_matrix(), get_my_permissions(), list_permissions(), get, Session, Permissions HTTP Router. Endpoints: - GET /api/v1/permissions - List all system…, PermissionOut, BaseModel (+6 more)
 
 ### Community 25 - "PustakHub — Role-Based Access Control (RBAC) & Audit Logging"
 Cohesion: 0.08
 Nodes (24): 10. Audit Event Vocabulary & Data Sanitization, 11. Audit Failure Policy, 12. Anonymous & Unauthenticated Audit Logging, 13. Security Considerations, 14. Future Enhancements & Scope, 1. Architecture Overview, 2. Roles & Principles, 3. Permission Vocabulary (+16 more)
 
-### Community 26 - "Settings"
-Cohesion: 0.09
-Nodes (21): Central application settings. Values are loaded in order of priority: 1. Actual…, Settings, BaseSettings, 9. Configuration Changes, 1. Executive Summary, 2. Verification Checklist & Findings, 3. Files Inspected, 4.1 Database Configuration (+13 more)
+### Community 26 - "Phase 2 Final Verification Report — PustakHub"
+Cohesion: 0.17
+Nodes (11): 1. Executive Summary, 4.1 Database Configuration, 4.2 Alembic & Migrations, 4.3 Model Relationships & Foreign Key Strategy, 4.4 Security Observations, 4. Detailed Technical Findings, 5. Test Suite Execution Results, 6. Discrepancies & Recommended Fixes (+3 more)
 
 ### Community 27 - "PustakHub — Final UI/UX Polish Pass Completion Report"
 Cohesion: 0.11
 Nodes (17): 10. Dependencies, 11. Tests, 12. Lint, 13. Build, 14. Backend Regression, 15. Alembic Migrations, 16. Graphify Knowledge Graph, 17. Known Limitations (+9 more)
 
-### Community 28 - "React + Vite"
-Cohesion: 0.50
-Nodes (3): Expanding the ESLint configuration, React Compiler, React + Vite
+### Community 28 - "TestClient"
+Cohesion: 0.13
+Nodes (15): TestClient, Test successful issue of an available book copy by staff., Verify issue endpoint requires authentication (401) and book:issue permission…, Ensure an already borrowed copy cannot be issued to another user (409 Conflict)., Verify on-time return closes the record as RETURNED and produces no fine., Verify overdue return marks record OVERDUE, calculates fine accurately, and…, Test resource-level authorization for borrowing history: - Student 1 can access…, Test fine querying and IDOR defenses: - Student 1 views own fines - Student 2… (+7 more)
 
-### Community 29 - "seed_database"
+### Community 29 - "seed_demo.py"
 Cohesion: 0.06
-Nodes (43): calculate_isbn13(), check_production_safety(), main(), Session, Generate a deterministic, mathematically valid ISBN-13 with check digit.…, Ensure seed script cannot accidentally execute in production., Seed the 20 standard library categories idempotently., Seed dedicated demo users for each existing role. (+35 more)
+Nodes (52): argparse, calculate_isbn13(), check_production_safety(), main(), Session, PustakHub — Demo Data & Seed Subsystem (Phase 11). Provides deterministic,…, Generate a deterministic, mathematically valid ISBN-13 with check digit.…, Ensure seed script cannot accidentally execute in production. (+44 more)
 
 ### Community 34 - "test_admin_bootstrap.py"
-Cohesion: 0.09
-Nodes (24): _create_admin(), execute_create_admin(), Interactive bootstrap of the initial ADMIN user account. Steps: 1. Collect full…, Create an ADMIN user account in the database. Raises ValueError with user-…, Verify a plaintext password against an Argon2id hash. Args: password: Raw…, verify_password(), Session, Tests for the PustakHub ADMIN bootstrap CLI (app.cli create-admin). Covers all… (+16 more)
+Cohesion: 0.07
+Nodes (38): _create_admin(), execute_create_admin(), execute_reconcile_admin(), main(), _normalize_email(), Session, PustakHub — Secure Administrative CLI. Provides a secure, interactive command…, Interactive bootstrap of the initial ADMIN user account. Steps: 1. Collect full… (+30 more)
 
 ### Community 36 - "PustakHub — Final Security & Architecture Audit Report"
 Cohesion: 0.08
-Nodes (26): 10. RBAC Security Audit, 11. IDOR / BOLA / Resource Authorization Assessment, 12. Library Catalog Security, 13. Borrowing & Circulation Concurrency, 14. Database Integrity, 15. Alembic Migration State, 16. Rate Limiting Audit, 17. Request Size Protection (+18 more)
+Nodes (25): 10. RBAC Security Audit, 11. IDOR / BOLA / Resource Authorization Assessment, 12. Library Catalog Security, 13. Borrowing & Circulation Concurrency, 14. Database Integrity, 15. Alembic Migration State, 16. Rate Limiting Audit, 17. Request Size Protection (+17 more)
 
-### Community 37 - "UserDetailsPage.jsx"
-Cohesion: 0.19
-Nodes (10): 2. User Profile & IAM Inspection (`/users/:id`), EffectivePermissionsPanel(), FALLBACK_ASSIGNABLE_ROLES, RoleAssignmentModal(), RoleAssignmentModalContent(), SUPPORTED_ASSIGNABLE_ROLES, ROLE_CLASSES, RoleBadge() (+2 more)
+### Community 37 - "HomePage.jsx"
+Cohesion: 0.09
+Nodes (16): 1. Administrative Users Ledger (`/users`), 2. User Profile & IAM Inspection (`/users/:id`), Routes & User Experience, FALLBACK_ASSIGNABLE_ROLES, RoleAssignmentModal(), RoleAssignmentModalContent(), SUPPORTED_ASSIGNABLE_ROLES, ROLE_CLASSES (+8 more)
 
 ### Community 38 - "PustakHub — Phase 7 Engineering & Verification Report"
 Cohesion: 0.08
@@ -307,36 +317,36 @@ Nodes (23): 10. API Endpoint Reference, 11. Future Enhancements & Scope, 1. Arch
 Cohesion: 0.05
 Nodes (58): decrypt_mfa_secret(), encrypt_mfa_secret(), _get_encryption_key(), Application-layer authenticated encryption for sensitive data at rest (e.g.…, Derive a 256-bit (32-byte) AES key from the configured MFA_ENCRYPTION_KEY., Encrypt a Base32 TOTP secret using AES-256-GCM. Returns: Versioned ciphertext…, Decrypt a stored MFA secret. If the value is in versioned ciphertext format…, TestClient (+50 more)
 
-### Community 46 - "RegisterRequest"
-Cohesion: 0.14
-Nodes (9): MfaVerifyRequest, Payload for initiating public student registration., Payload for setting a new password using a valid reset token., Payload to solve MFA challenge during login using TOTP code or recovery code., Payload for submitting the 6-digit registration verification OTP., RegisterRequest, ResetPasswordRequest, VerifyOtpRequest (+1 more)
+### Community 46 - "auth/schemas.py"
+Cohesion: 0.09
+Nodes (22): ForgotPasswordRequest, LoginRequest, LogoutRequest, MfaVerifyEnrollmentRequest, MfaVerifyRequest, BaseModel, Pydantic schemas for the authentication module. Enforces strict input…, Payload for user authentication. (+14 more)
 
 ### Community 48 - "PustakHub — System Architecture"
-Cohesion: 0.13
-Nodes (14): API Architecture & Route Categories, Backend Module Responsibilities, Configuration Strategy, Frontend Architecture, Frontend / Backend Relationship, Infrastructure & Security Layer, Logging & Security Rules, Modular Monolith Architecture (+6 more)
+Cohesion: 0.14
+Nodes (13): API Architecture & Route Categories, Backend Module Responsibilities, Configuration Strategy, Frontend / Backend Relationship, Infrastructure & Security Layer, Logging & Security Rules, Modular Monolith Architecture, Project Overview (+5 more)
 
 ### Community 49 - "categoryIcons.js"
 Cohesion: 0.23
 Nodes (9): BookCard(), CategoryIcon(), sizeMap, CATEGORY_ICONS, CATEGORY_STYLES, DEFAULT_CATEGORY_STYLE, getCategoryIcon(), getCategoryStyle() (+1 more)
 
 ### Community 50 - "Phase 4 Completion Report — PustakHub"
-Cohesion: 0.17
-Nodes (11): 10. Manual Verification, 11. Known Issues, 12. Deferred Work, 13. Final Status, 3. Role → Permission Matrix, 6. Database Changes, 7. Authorization Security Review, 8. Audit Logging Security Review (+3 more)
+Cohesion: 0.11
+Nodes (17): 10. Manual Verification, 11. Known Issues, 12. Deferred Work, 13. Final Status, 1. Summary, 2.1 RBAC Evaluation Flow, 2.2 Permission Resolution Logic, 2.3 Resource-Level Authorization Logic (+9 more)
 
-### Community 51 - "test_phase3_auth.py"
-Cohesion: 0.09
-Nodes (41): hash_otp(), hash_password(), Hash a plaintext password using Argon2id. Args: password: Raw password string.…, Produce a SHA-256 hex digest of an OTP string. Args: otp: 6-digit OTP string.…, _get_or_create(), Session, TestClient, Phase 3 Automated Test Suite — Authentication, Registration & Email OTP. Tests:… (+33 more)
+### Community 51 - "AccountStatus"
+Cohesion: 0.05
+Nodes (75): argon2, argon2_exceptions, create_access_token(), decode_token(), generate_otp(), hash_otp(), hash_password(), Any (+67 more)
 
-### Community 52 - "RealtimeEvent"
+### Community 52 - "ConnectionManager"
 Cohesion: 0.12
-Nodes (17): BaseModel, Standardized payload for real-time messages. Attributes: id: Unique identifier…, RealtimeEvent, ConnectionInfo, ConnectionManager, Any, UUID, WebSocket (+9 more)
+Nodes (14): ConnectionInfo, ConnectionManager, Any, UUID, WebSocket, Unregister an active WebSocket connection., Evaluate whether a connected user is authorized to receive a specific real-time…, Broadcast an event to all authorized connected WebSocket clients. Returns count… (+6 more)
 
 ### Community 53 - "PustakHub — Circulation, Borrowing & Fines Architecture"
 Cohesion: 0.17
 Nodes (11): 2. Circulation Policy & Defaults, 3. Physical Inventory State Transitions, 4. Book Issue Workflow, 5. Book Return Workflow & Overdue Fine Calculation, 7. RBAC & Resource-Level Authorization (IDOR / BOLA Prevention), 8. Audit Logging & Security Guarantees, Data Privacy & Secret Shielding, Deterministic Overdue Formula (+3 more)
 
 ### Community 54 - "Navbar.jsx"
-Cohesion: 0.16
+Cohesion: 0.15
 Nodes (14): Navbar(), ProfileDropdown(), handler(), ThemeToggle(), RealtimeStatusBadge(), applyThemeToDocument(), getStoredTheme(), getSystemPreference() (+6 more)
 
 ### Community 55 - "Circulation & Borrowing UI Architecture (`docs/circulation-ui.md`)"
@@ -344,40 +354,40 @@ Cohesion: 0.20
 Nodes (9): 1. Overview, 2. Route Map, 3. Component Architecture, 4.1 Issue / Checkout Workflow, 4.2 Return Workflow, 4.3 Fines Ledger & Transparency, 4. Key Workflows, 6. Accessibility & Responsiveness (+1 more)
 
 ### Community 56 - "Phase 5 Completion Report — PustakHub"
-Cohesion: 0.12
-Nodes (16): 10. Files Created, 11. Files Modified, 12. Test Results, 13. Verification, 15. Final Status, 1. Executive Summary, 2. Architecture Implemented, 3. Category Management (+8 more)
+Cohesion: 0.11
+Nodes (17): 10. Files Created, 11. Files Modified, 12. Test Results, 13. Verification, 14. Deferred Work, 15. Final Status, 1. Executive Summary, 2. Architecture Implemented (+9 more)
 
 ### Community 57 - "audit/router.py"
-Cohesion: 0.17
-Nodes (21): get_audit_actions(), get_audit_log_by_id(), get_audit_logs(), datetime, get, Session, UUID, Audit Logs HTTP Router. Endpoints: - GET /api/v1/audit/logs - Query system… (+13 more)
+Cohesion: 0.19
+Nodes (20): get_audit_actions(), get_audit_log_by_id(), get_audit_logs(), datetime, get, Session, UUID, Audit Logs HTTP Router. Endpoints: - GET /api/v1/audit/logs - Query system… (+12 more)
 
 ### Community 58 - "auth_headers"
 Cohesion: 0.09
 Nodes (12): auth_headers(), UUID, Tests authorization gates for audit management endpoints., Tests multi-parameter filtering and search on audit logs., Tests server-side pagination for audit trails., Tests single audit event inspection, 404 handling, and IDOR protection., Verifies that audit endpoints never leak secrets and reject mutations., TestAuditAuthorization (+4 more)
 
 ### Community 59 - "usePermissions"
-Cohesion: 0.12
-Nodes (22): 1. Architectural Principles, 2. Frontend Routes & Navigation, 3.1 `usePermissions` Hook (`src/hooks/usePermissions.js`), 3.2 `PermissionGate` Component (`src/components/PermissionGate.jsx`), 3.3 Protected Route Guarding (`src/components/ProtectedRoute.jsx`), 3. RBAC UI Architecture, 5. Demo Account Permissions Matrix, 6. Accessibility & Responsiveness (+14 more)
+Cohesion: 0.10
+Nodes (26): Frontend Architecture, 1. Architectural Principles, 2. Frontend Routes & Navigation, 3.1 `usePermissions` Hook (`src/hooks/usePermissions.js`), 3.2 `PermissionGate` Component (`src/components/PermissionGate.jsx`), 3.3 Protected Route Guarding (`src/components/ProtectedRoute.jsx`), 3. RBAC UI Architecture, 5. Demo Account Permissions Matrix (+18 more)
 
 ### Community 60 - "Real-Time Update Architecture & Specification"
 Cohesion: 0.11
 Nodes (18): 10. Summary of Subsystem Components, 1. Executive Summary & Objective, 2.1 REST as the Authoritative Source of Truth, 2. Core Architectural Principles, 3.1 Transport Selection: WebSocket (`ws://` / `wss://`), 3.2 Multi-Worker Backplane: Redis Pub/Sub, 3. Real-Time Transport: WebSockets & Redis Pub/Sub, 5.1 Strict Secret Exclusion Guarantee (+10 more)
 
-### Community 61 - "cli.py"
-Cohesion: 0.16
-Nodes (14): argparse, execute_reconcile_admin(), main(), _normalize_email(), Session, PustakHub — Secure Administrative CLI. Provides a secure, interactive command…, Atomically reconcile administrator role to exactly ONE target user account. 1.…, Interactive reconciliation of the single intended ADMIN account. (+6 more)
+### Community 61 - "fines/router.py"
+Cohesion: 0.32
+Nodes (12): get_fine(), get_user_fines(), _is_staff_user(), list_fines(), get, Session, UUID, Fines HTTP Router. Provides endpoints for: - GET /fines - GET /fines/{fine_id}… (+4 more)
 
 ### Community 62 - "Phase 14 Implementation Report — Dashboard & Operational Analytics UI"
 Cohesion: 0.13
 Nodes (14): 10. Database, 11. Demo Data, 12. Documentation, 13. Known Limitations, 14. Final Status, 1. Summary, 2. Dashboard Architecture, 3. Role-Specific Features (+6 more)
 
 ### Community 63 - "react-router-dom"
-Cohesion: 0.26
+Cohesion: 0.29
 Nodes (10): 11. Login Message Root Cause, 2.1 ResetPasswordPage (`frontend/src/pages/ResetPasswordPage.jsx`), AuthCard(), AuthError(), AuthLabel(), AuthSuccess(), AuthContext, authService (+2 more)
 
 ### Community 64 - "react"
-Cohesion: 0.16
-Nodes (15): BookFormModal(), CategoryFormModal(), ConfirmDialog(), COPY_STATUSES, CopyFormModal(), IssueBookModal(), IssueBookModalContent(), Toast() (+7 more)
+Cohesion: 0.15
+Nodes (16): BookFormModal(), CategoryFormModal(), ConfirmDialog(), COPY_STATUSES, CopyFormModal(), EffectivePermissionsPanel(), IssueBookModal(), IssueBookModalContent() (+8 more)
 
 ### Community 65 - "PustakHub — Phase 8 Engineering & Verification Report"
 Cohesion: 0.12
@@ -388,40 +398,40 @@ Cohesion: 0.10
 Nodes (20): 11. Acceptance Criteria, 12. Known Issues, 13. Deferred Work, 15. Final Status, 1. Objective, 2. Initial Project State, 3. Changes Implemented, 4. Files Created (+12 more)
 
 ### Community 67 - "PustakHub — API Rate Limiting & Security Hardening (Phase 8)"
-Cohesion: 0.09
-Nodes (20): BaseHTTPMiddleware, Request, Response, Middleware injecting modern security headers and Content Security Policy (CSP)., Construct the Content Security Policy directive string., SecurityHeadersMiddleware, 10. Frontend Compatibility, 11. Production Deployment Recommendations (+12 more)
+Cohesion: 0.12
+Nodes (15): 10. Frontend Compatibility, 11. Production Deployment Recommendations, 1. Executive Summary, 2.1 Sliding Window Algorithm, 2.2 Redis Key Strategy, 2.3 Route Category Policies & Quotas, 2. Redis-Backed API Rate Limiting, 3. Rate Limit Response Semantics (+7 more)
 
-### Community 68 - ".initiate_registration"
-Cohesion: 0.20
-Nodes (9): generate_otp(), Constant-time comparison between a provided OTP and a stored SHA-256 hash.…, Generate a cryptographically secure numeric OTP string. Args: length: Number of…, verify_otp_hash(), Response returned when registration is initiated and OTP is dispatched., RegisterResponse, Initiate student registration by storing state in Redis and dispatching an OTP.…, OTP is 6 digits; hash is 64-char SHA-256; verification works. (+1 more)
+### Community 68 - "AuthService"
+Cohesion: 0.11
+Nodes (20): get_redis_client(), Get or initialize the shared Redis client instance. Uses…, MfaDisableRequest, MfaEnrollResponse, Response returned upon starting MFA enrollment., Payload to disable MFA on account (requires password re-authentication)., Response returned when registration is initiated and OTP is dispatched., RegisterResponse (+12 more)
 
 ### Community 69 - "4. Entities"
-Cohesion: 0.07
-Nodes (26): 10. Status Key, 1. Database Choice, 2. Architecture Overview, 3. Entity Relationship Diagram, 4.10 BorrowRecord — IMPLEMENTED, 4.11 Fine — IMPLEMENTED, 4.12 AuditLog — IMPLEMENTED, 4.1 User — IMPLEMENTED (+18 more)
+Cohesion: 0.08
+Nodes (25): 10. Status Key, 1. Database Choice, 2. Architecture Overview, 3. Entity Relationship Diagram, 4.10 BorrowRecord — IMPLEMENTED, 4.11 Fine — IMPLEMENTED, 4.1 User — IMPLEMENTED, 4.2 Role — IMPLEMENTED (+17 more)
 
-### Community 70 - "return_book"
-Cohesion: 0.27
-Nodes (14): _extract_request_meta(), get_borrowing(), get_user_borrowings(), _is_staff_user(), issue_book(), list_borrowings(), get, post (+6 more)
+### Community 70 - "borrowing/router.py"
+Cohesion: 0.25
+Nodes (17): _extract_request_meta(), get_borrowing(), get_user_borrowings(), _is_staff_user(), issue_book(), list_borrowings(), get, post (+9 more)
 
 ### Community 71 - "PustakHub — Administrator Account Reconciliation Report"
 Cohesion: 0.22
 Nodes (8): 1. Database State Before vs. After, 2. Target Administrator Details, 3. Operations & Transaction Safety, 4. Graphify Architecture Verification, 5. Verification & Test Results, Aggregate Summary Table, Executive Summary, PustakHub — Administrator Account Reconciliation Report
 
-### Community 72 - "test_phase13_circulation_ui.py"
-Cohesion: 0.15
-Nodes (20): BorrowStatus, str, Current state of a borrow transaction., _auth_headers(), TestClient, UUID, Phase 13 Integration Tests — Circulation, Borrowing & Fines Workflows.…, Verify that staff can issue an available copy, status transitions, and return… (+12 more)
+### Community 72 - "users/router.py"
+Cohesion: 0.28
+Nodes (12): _extract_request_meta(), get_user_by_id(), get_user_effective_permissions(), list_users(), get, Request, Session, UUID (+4 more)
 
 ### Community 73 - "Key Features"
-Cohesion: 0.25
-Nodes (8): Audit & Observability, Authorization & RBAC, Identity & Authentication, Key Features, Library Management, MFA & Account Recovery, Real-Time Updates (WebSocket & Redis Pub/Sub), Security Engineering
+Cohesion: 0.22
+Nodes (9): Audit & Observability, Authorization & RBAC, Borrowing & Fines, Identity & Authentication, Key Features, Library Management, MFA & Account Recovery, Real-Time Updates (WebSocket & Redis Pub/Sub) (+1 more)
 
-### Community 74 - "require_any_permission"
-Cohesion: 0.19
-Nodes (11): FastAPI dependency factory enforcing that the caller has ALL of the specified…, FastAPI dependency factory enforcing that the caller possesses the specified…, FastAPI dependency factory enforcing that the caller has AT LEAST ONE of the…, require_all_permissions(), require_any_permission(), require_role(), Direct unit testing of authorization dependency functions., test_rbac_dependencies_unit_evaluation() (+3 more)
+### Community 74 - "Phase 15 Report — User & IAM Administration UI"
+Cohesion: 0.15
+Nodes (12): 10. Frontend Lint & Build, 11. Alembic Status, 12. Graphify Status, 13. Known Limitations, 14. Deferred Work, 1. Phase Objective, 2. Existing Implementation Inspected, 4. Frontend Changes (+4 more)
 
-### Community 75 - "AuditLog"
-Cohesion: 0.12
-Nodes (19): AuditLog, Immutable security and operational audit trail. No TimestampMixin: audit rows…, AuditService, datetime, Session, UUID, Audit service for recording and retrieving security and operational audit trail…, Retrieve a single audit log entry by UUID. (+11 more)
+### Community 75 - "audit/service.py"
+Cohesion: 0.16
+Nodes (13): AuditService, datetime, Session, UUID, Audit service for recording and retrieving security and operational audit trail…, Retrieve a single audit log entry by UUID., Query audit logs with filtering and pagination. Returns (items, total_count)., Central service for logging and querying security and operational audit entries. (+5 more)
 
 ### Community 76 - "PustakHub"
 Cohesion: 0.12
@@ -435,25 +445,25 @@ Nodes (18): 10. Circulation & Catalog Integration, 11. Reconnection Strategy, 12
 Cohesion: 0.18
 Nodes (11): 1. Executive Overview, 2. Dataset Composition, 3. Demo User Credentials (LOCAL DEVELOPMENT ONLY), 4.1 Seed the Database, 4.2 Reset Demo Data, 4.3 CLI Flags Reference, 4. CLI Usage, 5. Security & Safety Invariants (+3 more)
 
-### Community 80 - "AuthService"
+### Community 80 - "auth/service.py"
 Cohesion: 0.10
-Nodes (26): get_redis_client(), Get or initialize the shared Redis client instance. Uses…, create_refresh_token(), hash_token(), datetime, Compute the SHA-256 hex digest of a token string. Used to store refresh token…, Generate a signed JWT refresh token and its SHA-256 hash. Args: subject: Unique…, AuthService (+18 more)
+Nodes (24): create_refresh_token(), hash_token(), datetime, Compute the SHA-256 hex digest of a token string. Used to store refresh token…, Generate a signed JWT refresh token and its SHA-256 hash. Args: subject: Unique…, LoginResponse, Response returned after successful OTP verification and User creation., Safe user representation for API responses. (+16 more)
 
 ### Community 81 - "Phase 16 Verification & Implementation Report: Audit Management UI"
-Cohesion: 0.17
-Nodes (11): 10. Frontend Lint & Build, 11. Alembic Status, 12. Graphify Status, 13. Known Limitations, 14. Deferred Work, 1. Phase Objective, 4. Frontend Changes, 7. Authorization & Security Controls (+3 more)
+Cohesion: 0.18
+Nodes (10): 10. Frontend Lint & Build, 11. Alembic Status, 12. Graphify Status, 13. Known Limitations, 14. Deferred Work, 1. Phase Objective, 4. Frontend Changes, 7. Authorization & Security Controls (+2 more)
 
 ### Community 82 - "PustakHub UI & Theme Design System"
 Cohesion: 0.12
 Nodes (15): 1. Overview & Architecture, 2. Design Tokens Reference, 3. Light / Dark / System Modes & Anti-FOUC, 4. Dashboard Architecture & Metrics Verification, 5. Animation Strategy & External UI Stack, 6. Accessibility & Responsive Standards, Anti-FOUC Execution, Core Color Palette (CSS Variables) (+7 more)
 
 ### Community 83 - "PustakHub — Final Runtime Integration & Bug-Fix Report"
-Cohesion: 0.15
-Nodes (12): 10. MFA Login Test, 12. Redis Warning Assessment, 13. Security Verification, 14. Validation Results, 16. Remaining Known Limitations, 1. Catalog Issue, 2. Catalog Root Cause, 4. OTP Issue (+4 more)
+Cohesion: 0.17
+Nodes (11): 10. MFA Login Test, 12. Redis Warning Assessment, 13. Security Verification, 14. Validation Results, 16. Remaining Known Limitations, 1. Catalog Issue, 4. OTP Issue, 7. Email Delivery Verification (+3 more)
 
-### Community 84 - "get_optional_current_user"
-Cohesion: 0.33
-Nodes (6): get_optional_current_user(), Session, Extract and validate JWT Bearer token if present; returns None if credentials…, 15. Files Modified, 3. Catalog Fix, HTTPAuthorizationCredentials
+### Community 84 - "get_current_user"
+Cohesion: 0.16
+Nodes (14): get_current_user(), get_optional_current_user(), Session, Extract and validate JWT Bearer token if present; returns None if credentials…, Extract, decode, and validate the JWT Bearer token from the request. Returns…, FastAPI dependency factory enforcing that the caller has a specific permission.…, require_permission(), 15. Files Modified (+6 more)
 
 ### Community 85 - "Running Locally"
 Cohesion: 0.40
@@ -464,20 +474,20 @@ Cohesion: 0.40
 Nodes (5): Backend, Frontend, Storage & Security Infrastructure, Technology Stack, Testing & Verification
 
 ### Community 87 - "Example Workflows"
-Cohesion: 0.50
-Nodes (4): 1. Registration & Account Activation, 2. Multi-Factor Authentication (MFA) Setup, 3. MFA Login Challenge, Example Workflows
+Cohesion: 0.40
+Nodes (5): 1. Registration & Account Activation, 2. Multi-Factor Authentication (MFA) Setup, 3. MFA Login Challenge, 4. Book Borrowing & Overdue Fine Generation, Example Workflows
 
 ### Community 88 - "manager.py"
-Cohesion: 0.16
-Nodes (14): asyncio, Real-time Event Taxonomy and Schemas for PustakHub. Defines canonical event…, Realtime module for PustakHub., Connection Manager for WebSockets in PustakHub. Manages authenticated active…, UUID, Real-time Event Publisher for PustakHub. Provides non-blocking, fail-safe…, _listen_redis_channel(), Redis Pub/Sub Subscriber for Distributed Real-time Updates in PustakHub.… (+6 more)
+Cohesion: 0.21
+Nodes (10): asyncio, Connection Manager for WebSockets in PustakHub. Manages authenticated active…, _listen_redis_channel(), Redis Pub/Sub Subscriber for Distributed Real-time Updates in PustakHub.…, Async listener loop connecting to Redis Pub/Sub., Start the background Redis subscriber task during app startup., start_redis_subscriber(), dataclasses (+2 more)
 
-### Community 89 - "test_phase2_database.py"
-Cohesion: 0.07
-Nodes (44): AuditLog model. Immutable record of security-sensitive and business-critical…, Base, Declarative Base and shared column mixins for all SQLAlchemy models. Every…, Shared declarative base for all PustakHub SQLAlchemy models. Uses SQLAlchemy…, Adds `created_at` and `updated_at` to any model that inherits this mixin. -…, TimestampMixin, BookCopy model. A physical copy of a book title. Example relationship: Book:…, Book model. Represents a book title in the library catalogue. A book title is… (+36 more)
+### Community 89 - "user.py"
+Cohesion: 0.11
+Nodes (42): SQLAlchemy engine, session factory, and FastAPI session dependency. This module…, AuditLog model. Immutable record of security-sensitive and business-critical…, Base, Declarative Base and shared column mixins for all SQLAlchemy models. Every…, Shared declarative base for all PustakHub SQLAlchemy models. Uses SQLAlchemy…, Adds `created_at` and `updated_at` to any model that inherits this mixin. -…, TimestampMixin, BookCopy model. A physical copy of a book title. Example relationship: Book:… (+34 more)
 
-### Community 90 - "BorrowRecordOut"
-Cohesion: 0.13
-Nodes (19): Borrowing and Circulation module for PustakHub., BorrowIssueRequest, BorrowRecordListResponse, BorrowRecordOut, BorrowReturnRequest, BaseModel, Pydantic schemas for the Circulation and Borrowing module. Covers: -…, Request payload for issuing a physical book copy to a user. (+11 more)
+### Community 90 - "BorrowStatus"
+Cohesion: 0.19
+Nodes (15): BorrowStatus, str, Current state of a borrow transaction., BorrowRecordOut, Response payload representing a single borrowing transaction., BorrowingService, datetime, Session (+7 more)
 
 ### Community 91 - "Environment Configuration"
 Cohesion: 0.67
@@ -491,21 +501,21 @@ Nodes (3): Clone the Repository, Installation, Prerequisites
 Cohesion: 0.67
 Nodes (3): Demo Data, Seeded Demo Accounts (Local Development Only), Seeding the Database
 
-### Community 94 - "logging.py"
-Cohesion: 0.08
-Nodes (32): Application configuration. Uses pydantic-settings to load values from…, get_logger(), Application logging configuration. Sets up structured console logging for…, Get a named logger. Usage: from app.core.logging import get_logger logger =…, RateLimitResult, Redis-backed sliding window rate limiter for PustakHub. Implements an atomic…, Resolve the route path and HTTP method into rate limit policy parameters:…, Encapsulates the result of a rate limit evaluation. (+24 more)
+### Community 94 - "typing"
+Cohesion: 0.12
+Nodes (22): Application configuration. Uses pydantic-settings to load values from…, get_logger(), Application logging configuration. Sets up structured console logging for…, Get a named logger. Usage: from app.core.logging import get_logger logger =…, Redis-backed sliding window rate limiter for PustakHub. Implements an atomic…, Resolve the route path and HTTP method into rate limit policy parameters:…, resolve_rate_limit_policy(), Redis client and connection management for PustakHub. Used in Phase 3… (+14 more)
 
 ### Community 95 - "EmailService"
-Cohesion: 0.22
-Nodes (9): EmailService, Send a password reset email with a secure one-click reset link. Args: to_email:…, Service handling outbound email delivery via SMTP., Verify password reset email construction: - Email contains a one-click reset…, Verify that recipient name with special characters is HTML-escaped to prevent…, test_password_reset_email_format_and_link_construction(), test_password_reset_email_html_escaping(), 5. OTP Root Cause (+1 more)
+Cohesion: 0.16
+Nodes (11): EmailService, Send a password reset email with a secure one-click reset link. Args: to_email:…, Service handling outbound email delivery via SMTP., Send a 6-digit registration verification OTP to the user's email. Args:…, Verify password reset email construction: - Email contains a one-click reset…, Verify that recipient name with special characters is HTML-escaped to prevent…, test_password_reset_email_format_and_link_construction(), test_password_reset_email_html_escaping() (+3 more)
 
 ### Community 96 - "db"
-Cohesion: 0.11
-Nodes (18): db(), fixture, Provide a database session for each test., ensure_rbac_seeded(), fixture, Ensure database has default roles and permissions initialized., ensure_rbac_seeded(), fixture (+10 more)
+Cohesion: 0.07
+Nodes (30): websocket, Primary authenticated WebSocket connection endpoint. Workflow: 1. Validates JWT…, websocket_endpoint(), db(), fixture, Provide a database session for each test., auth_tokens(), _get_or_create() (+22 more)
 
-### Community 97 - "RealtimeEventType"
-Cohesion: 0.17
-Nodes (10): str, Canonical real-time event types., RealtimeEventType, Client sending PING receives PONG with UTC timestamp., Sensitive keys like passwords, tokens, and hashes are automatically redacted., TestEventSecurityAndSanitization, TestWebSocketHeartbeat, 4.1 Canonical Event Taxonomy (+2 more)
+### Community 97 - "publish_realtime_event"
+Cohesion: 0.13
+Nodes (22): BaseModel, str, Real-time Event Taxonomy and Schemas for PustakHub. Defines canonical event…, Canonical real-time event types., Standardized payload for real-time messages. Attributes: id: Unique identifier…, RealtimeEvent, RealtimeEventType, Realtime module for PustakHub. (+14 more)
 
 ### Community 98 - "clean_redis"
 Cohesion: 0.29
@@ -523,13 +533,13 @@ Nodes (5): 4.1 Catalog Explorer (`/catalog`), 4.2 Book Details & Bibliographic R
 Cohesion: 0.29
 Nodes (6): 1. Overview, 2. Persona Views & Information Architecture, 3. Metrics Matrix & Endpoints, 4. Reusable Components, 5. Security & IDOR Defenses, Dashboard & Operational Analytics UI Architecture (`docs/dashboard-ui.md`)
 
-### Community 102 - "auth/service.py"
-Cohesion: 0.10
-Nodes (29): get_me(), mfa_status(), get, LoginRequest, LoginResponse, MfaDisableRequest, MfaEnrollResponse, MfaStatusResponse (+21 more)
+### Community 102 - "MfaStatusResponse"
+Cohesion: 0.29
+Nodes (6): get_me(), mfa_status(), get, MfaStatusResponse, Non-sensitive MFA status representation., Return non-sensitive MFA status for the authenticated user.
 
-### Community 103 - "publish_realtime_event"
-Cohesion: 0.16
-Nodes (12): _dispatch_event_async(), publish_realtime_event(), Any, Ensure the data payload contains no sensitive credentials or raw secrets., Internal async dispatch to local connections and Redis Pub/Sub., Publish a real-time event safely from any synchronous or asynchronous context.…, _sanitize_data_payload(), Catalog updates are broadcast to all authenticated subscribers. (+4 more)
+### Community 103 - "TestWebSocketEventDeliveryAndScoping"
+Cohesion: 0.22
+Nodes (5): Catalog updates are broadcast to all authenticated subscribers., Borrowing events targeting Student A are received by Student A., Student B does NOT receive private borrowing events meant exclusively for…, Admin subscribers receive all audit logs and operational events., TestWebSocketEventDeliveryAndScoping
 
 ### Community 104 - "check_resource_access"
 Cohesion: 0.29
@@ -540,88 +550,116 @@ Cohesion: 0.16
 Nodes (13): PayloadTooLargeError, Raised when request payload exceeds allowed limit (HTTP 413)., BaseHTTPMiddleware, Request, Response, Middleware that rejects requests with body size exceeding…, RequestSizeLimitMiddleware, limited_receive() (+5 more)
 
 ### Community 106 - "User & IAM Administration Architecture"
-Cohesion: 0.17
-Nodes (11): 1. Administrative Users Ledger (`/users`), API Endpoints Reference, Architecture & Security Boundaries, Backend Authoritative Enforcements, Defensive Self-Protection & Lockout Prevention, Frontend UX Guards, IAM Audit Trail Integration, Known Limitations & Boundaries (+3 more)
+Cohesion: 0.20
+Nodes (9): API Endpoints Reference, Architecture & Security Boundaries, Backend Authoritative Enforcements, Defensive Self-Protection & Lockout Prevention, Frontend UX Guards, IAM Audit Trail Integration, Known Limitations & Boundaries, User & IAM Administration Architecture (+1 more)
 
 ### Community 107 - "DashboardPreviewPage.jsx"
-Cohesion: 0.09
-Nodes (10): COLOR_MAP, DashboardStatCard(), COLOR_MAP, QuickActionCard(), FEATURES, api, failedQueue, auditService (+2 more)
+Cohesion: 0.13
+Nodes (7): COLOR_MAP, DashboardStatCard(), COLOR_MAP, QuickActionCard(), RealtimeContext, ConnectionStatus, realtimeService
 
-### Community 108 - "_authenticate_ws_token"
+### Community 108 - "PustakHub — Production Deployment Guide"
+Cohesion: 0.17
+Nodes (11): 1. Frontend Deployment (Vercel), 2. Backend Deployment (Render), 3. Production Environment Variables Reference, 4. Alternative: Docker & Container Orchestration, 5. Post-Deployment Verification Checklist, Architecture Overview, Deployment Steps, Option A: Render Blueprint (Recommended) (+3 more)
+
+### Community 109 - "clean_redis_ratelimits_global"
 Cohesion: 0.33
-Nodes (6): _authenticate_ws_token(), Session, websocket, Validate JWT access token and load user identity with dynamic roles and…, Primary authenticated WebSocket connection endpoint. Workflow: 1. Validates JWT…, websocket_endpoint()
-
-### Community 109 - "setup_test_database"
-Cohesion: 0.25
-Nodes (8): clean_redis_ratelimits_global(), client(), fixture, TestClient, Verify test database connection and seed baseline roles/permissions., Session-scoped FastAPI test client. Uses a single client instance for the…, Flush rate limit keys in Redis before and after each test., setup_test_database()
+Nodes (6): clean_redis_ratelimits_global(), client(), fixture, TestClient, Session-scoped FastAPI test client. Uses a single client instance for the…, Flush rate limit keys in Redis before and after each test.
 
 ### Community 110 - "test_phase8_security_hardening.py"
-Cohesion: 0.05
-Nodes (56): RateLimiter, Evaluate rate limit for a given identifier within a category. Args: identifier:…, Central Redis-backed sliding window rate limiter., clean_redis_ratelimits(), get_random_ip(), fixture, TestClient, Phase 8 Security Hardening & Rate Limiting Tests. Verifies: 1. Redis-backed… (+48 more)
+Cohesion: 0.06
+Nodes (52): RateLimiter, Central Redis-backed sliding window rate limiter., get_random_ip(), TestClient, Phase 8 Security Hardening & Rate Limiting Tests. Verifies: 1. Redis-backed…, Traffic from IP A does not consume or affect the rate limit quota of IP B., Exhausting quota in one category does not affect other categories., Rate limit counters expire and reset after the sliding window elapses. (+44 more)
 
-### Community 111 - "test_phase14_dashboard_analytics.py"
-Cohesion: 0.16
-Nodes (17): _auth_headers(), dashboard_users(), ensure_rbac_seeded(), fixture, TestClient, UUID, Phase 14 Integration Tests — Operational Analytics & Dashboard Endpoint…, Verify LIBRARIAN can query circulation data but cannot access role management. (+9 more)
+### Community 111 - "_auth_headers"
+Cohesion: 0.22
+Nodes (11): _auth_headers(), TestClient, UUID, Verify LIBRARIAN can query circulation data but cannot access role management., Verify STUDENT can only query personal loan/fine metrics and cannot access…, Verify unauthenticated guests receive 401 on protected dashboard endpoints., Verify ADMIN can query all operational dashboard data sources., test_admin_dashboard_metrics_endpoints() (+3 more)
 
 ### Community 112 - "TestWebSocketAuthentication"
 Cohesion: 0.22
 Nodes (5): Valid JWT access token successfully establishes WebSocket connection., Connection attempt without token is rejected with policy violation., Connection attempt with corrupted token is rejected., Suspended user token is rejected during handshake., TestWebSocketAuthentication
 
-### Community 113 - "require_permission"
-Cohesion: 0.40
-Nodes (4): FastAPI dependency factory enforcing that the caller has a specific permission.…, require_permission(), 13. Security Validation, 8. RBAC / Security
+### Community 113 - "borrowing/schemas.py"
+Cohesion: 0.25
+Nodes (9): Borrowing and Circulation module for PustakHub., BorrowIssueRequest, BorrowReturnRequest, BaseModel, Pydantic schemas for the Circulation and Borrowing module. Covers: -…, Request payload for issuing a physical book copy to a user., Request payload for checking in / returning a borrowed copy., 10. Files Created (+1 more)
 
-### Community 114 - "2. Architecture & Flows"
-Cohesion: 0.40
-Nodes (5): 2.1 RBAC Evaluation Flow, 2.2 Permission Resolution Logic, 2.3 Resource-Level Authorization Logic, 2.4 Audit Logging Flow, 2. Architecture & Flows
+### Community 114 - "auth_headers"
+Cohesion: 0.29
+Nodes (4): auth_headers(), UUID, Tests for GET /api/v1/users with search and filtering., TestUserListingAndFilters
 
-### Community 115 - "5. Dependencies"
-Cohesion: 0.50
-Nodes (4): 5. Dependencies, Frontend, Local Infrastructure, Python (`backend/requirements.txt`)
+### Community 115 - "SecurityHeadersMiddleware"
+Cohesion: 0.25
+Nodes (7): BaseHTTPMiddleware, Request, Response, Middleware injecting modern security headers and Content Security Policy (CSP)., Construct the Content Security Policy directive string., SecurityHeadersMiddleware, 5. Security HTTP Headers
 
 ### Community 116 - "TestRealtimeStatusEndpoint"
 Cohesion: 0.40
 Nodes (3): GET /api/v1/realtime/status returns operational metrics., GET /api/v1/realtime/status requires authentication., TestRealtimeStatusEndpoint
 
-### Community 118 - "seed_demo.py"
-Cohesion: 0.10
-Nodes (39): FineReason, FineStatus, str, Fine model. A financial penalty associated with a BorrowRecord (e.g., overdue…, Payment state of a fine., Why the fine was issued., BorrowingService, Circulation and Borrowing Service Layer. Provides business logic and… (+31 more)
+### Community 117 - "get_db"
+Cohesion: 0.20
+Nodes (10): get_db(), Session, FastAPI dependency that yields a SQLAlchemy database session. Usage in a route:…, 2. Verification Checklist & Findings, 3. Files Inspected, Configuration & Core Layer, Migrations, Tests (+2 more)
+
+### Community 118 - "borrowing/service.py"
+Cohesion: 0.13
+Nodes (23): Fine, FineReason, FineStatus, str, Fine model. A financial penalty associated with a BorrowRecord (e.g., overdue…, Payment state of a fine., Why the fine was issued., Financial penalty record for a borrowing transaction. (+15 more)
 
 ### Community 119 - "PustakHub — Audit Management & Forensic Logging Architecture"
-Cohesion: 0.15
-Nodes (12): 1. Overview & Objectives, 2. Architecture & Data Model, 2. `GET /api/v1/audit/logs/{audit_id}`, 3. Backend Audit Endpoints, 3. `GET /api/v1/audit/actions`, 4. Frontend Audit Management Console, 5. Security & Immutability Guarantees, Core Tenets (+4 more)
+Cohesion: 0.17
+Nodes (11): 1. `GET /api/v1/audit/logs`, 1. Overview & Objectives, 2. Architecture & Data Model, 2. `GET /api/v1/audit/logs/{audit_id}`, 3. Backend Audit Endpoints, 3. `GET /api/v1/audit/actions`, 4. Frontend Audit Management Console, 5. Security & Immutability Guarantees (+3 more)
+
+### Community 120 - "TestAccountStatusTransitionsAndSelfLockout"
+Cohesion: 0.22
+Nodes (4): Tests for PATCH /api/v1/users/{id}/status and self-lockout prevention., Admin must NOT be allowed to deactivate their own account., Admin must NOT be allowed to suspend their own account., TestAccountStatusTransitionsAndSelfLockout
+
+### Community 123 - "TestUserDetailsAndPermissions"
+Cohesion: 0.29
+Nodes (3): Tests for GET /api/v1/users/{id} and /api/v1/users/{id}/permissions., Active user is verified; PENDING_VERIFICATION user is not verified., TestUserDetailsAndPermissions
 
 ### Community 124 - "PustakHub — Password Reset One-Click Link Implementation & Verification Report"
 Cohesion: 0.20
 Nodes (9): 1.1 Backend Configuration (`backend/app/core/config.py`, `.env`, `.env.example`), 1.2 Email Service (`backend/app/core/email.py`), 1.3 Frontend Flow Integration (`frontend/src/pages/ResetPasswordPage.jsx`, `frontend/src/pages/ForgotPasswordPage.jsx`), 1. Summary of Changes, 2. Graphify Architecture Verification, 3. Security & Safety Verification, 4. Test Results, Executive Summary (+1 more)
 
 ### Community 125 - "AuditPage.jsx"
-Cohesion: 0.13
-Nodes (13): 5. Components Updated, 4. Frontend Implementation, AuditEventBadge(), AuditFilters(), AuditStatusBadge(), RealtimeContext, useRealtime(), AuditPage() (+5 more)
+Cohesion: 0.19
+Nodes (11): Key UI Features, 5. Components Updated, AuditDetailModal(), AuditEventBadge(), AuditFilters(), AuditStatusBadge(), useRealtime(), AuditPage() (+3 more)
 
 ### Community 126 - "Phase 6 Completion Report — Circulation, Borrowing & Fines"
 Cohesion: 0.18
-Nodes (10): 11. Files Modified, 12. Test Results, 13. Verification, 14. Deferred Work (Out of Scope for Phase 6), 1. Executive Summary, 2. Circulation Architecture, 3. Book Issue Workflow, 6. Borrowing & Fine History (IDOR / BOLA Defenses) (+2 more)
+Nodes (10): 11. Files Modified, 12. Test Results, 13. Verification, 14. Deferred Work (Out of Scope for Phase 6), 1. Executive Summary, 2. Circulation Architecture, 5. Due-Date & Fine Policy, 6. Borrowing & Fine History (IDOR / BOLA Defenses) (+2 more)
 
-### Community 127 - "get_realtime_status"
-Cohesion: 0.67
-Nodes (3): get_realtime_status(), get, Return operational connection statistics.
+### Community 127 - "AuditContextMiddleware"
+Cohesion: 0.33
+Nodes (5): AuditContextMiddleware, BaseHTTPMiddleware, Request, Response, Middleware that populates request context (IP, User-Agent, Request-ID) used for…
 
-### Community 128 - "db_session"
-Cohesion: 0.67
-Nodes (3): db_session(), fixture, Provide a database session for seed testing.
+### Community 128 - "RateLimitMiddleware"
+Cohesion: 0.33
+Nodes (5): BaseHTTPMiddleware, Request, Response, RateLimitMiddleware, Middleware that enforces Redis-backed rate limiting per IP and route category.
+
+### Community 129 - "UserStatusUpdateRequest"
+Cohesion: 0.33
+Nodes (5): BaseModel, Pydantic schemas for the User management module., Payload for updating user account status., UserStatusUpdateRequest, 3. Backend Changes
+
+### Community 130 - ".check_rate_limit"
+Cohesion: 0.40
+Nodes (3): RateLimitResult, Evaluate rate limit for a given identifier within a category. Args: identifier:…, Encapsulates the result of a rate limit evaluation.
 
 ### Community 131 - "User"
-Cohesion: 0.10
-Nodes (30): Application user entity., Indicates whether email verification has completed (status is not…, User, create_test_user(), _create(), ensure_rbac_seeded(), fixture, TestClient (+22 more)
+Cohesion: 0.08
+Nodes (39): AuditLog, Immutable security and operational audit trail. No TimestampMixin: audit rows…, Persisted refresh-token session. One row per active refresh token issued to a…, UserSession, Application user entity., Indicates whether email verification has completed (status is not…, User, get_realtime_status() (+31 more)
+
+### Community 132 - "9. Tests"
+Cohesion: 0.40
+Nodes (4): Verifies that sensitive credentials and secrets are NEVER exposed., TestSensitiveFieldExposurePrevention, 9. Tests, Pytest Results
 
 ### Community 133 - "27. Findings"
 Cohesion: 0.33
 Nodes (6): 27. Findings, Critical, High, Informational, Low, Medium
 
+### Community 134 - "2. Architecture & Flows"
+Cohesion: 0.40
+Nodes (5): 2.1 Registration & OTP Flow, 2.2 Login, Token Issuance & Refresh Flow, 2.3 Logout & Session Invalidation, 2.4 Reusable Authentication Dependencies, 2. Architecture & Flows
+
 ### Community 135 - "roles/router.py"
-Cohesion: 0.07
-Nodes (45): get_matrix(), get_my_permissions(), list_permissions(), get, Session, PermissionOut, BaseModel, Permission detail response. (+37 more)
+Cohesion: 0.18
+Nodes (24): assign_permission_to_role(), assign_role_to_user(), create_role(), get_role(), list_roles(), delete, get, post (+16 more)
 
 ### Community 137 - "TestPublicRegistrationIntegrity"
 Cohesion: 0.33
@@ -632,19 +670,19 @@ Cohesion: 0.11
 Nodes (25): Parse CORS_ORIGINS from comma-separated string into a list., check_database_connection(), Attempt a lightweight SELECT 1 to verify the database is reachable. Returns…, configure_logging(), Configure the root logger for PustakHub. Should be called once at application…, check_redis_connection(), Check if the Redis server is reachable. Returns: True if Redis responds to…, create_application() (+17 more)
 
 ## Knowledge Gaps
-- **532 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+527 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1249 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **540 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+535 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1257 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `App.jsx`, `create_test_user`, `roles/router.py`, `AuditAction`, `Verification Matrix`, `BookCopy`, `auth/router.py`, `books/router.py`, `auth_headers`, `catalog_cleanup`, `PustakHub — Authentication & Identity Architecture (Phase 3 & Phase 7)`, `Phase 15 Report — User & IAM Administration UI`, `Role`, `seed_database`, `test_admin_bootstrap.py`, `test_phase9_security_remediation.py`, `test_phase3_auth.py`, `cli.py`, `4. Entities`, `return_book`, `test_phase13_circulation_ui.py`, `require_any_permission`, `AuditLog`, `AuthService`, `get_optional_current_user`, `Example Workflows`, `test_phase2_database.py`, `db`, `auth/service.py`, `check_resource_access`, `_authenticate_ws_token`, `test_phase14_dashboard_analytics.py`, `require_permission`, `seed_demo.py`, `Phase 6 Completion Report — Circulation, Borrowing & Fines`, `get_realtime_status`?**
-  _High betweenness centrality (0.278) - this node is a cross-community bridge._
+- **Why does `User` connect `User` to `App.jsx`, `Role`, `2. Architecture & Flows`, `books/router.py`, `roles/router.py`, `AuditAction`, `test_phase2_database.py`, `BookCopy`, `auth/router.py`, `AppPermission`, `catalog_cleanup`, `PustakHub — Authentication & Identity Architecture (Phase 3 & Phase 7)`, `PermissionService`, `permissions/router.py`, `seed_demo.py`, `test_admin_bootstrap.py`, `test_phase9_security_remediation.py`, `AccountStatus`, `fines/router.py`, `AuthService`, `borrowing/router.py`, `users/router.py`, `audit/service.py`, `auth/service.py`, `get_current_user`, `Example Workflows`, `user.py`, `BorrowStatus`, `typing`, `db`, `MfaStatusResponse`, `check_resource_access`, `borrowing/service.py`, `TestUserDetailsAndPermissions`?**
+  _High betweenness centrality (0.268) - this node is a cross-community bridge._
 - **Why does `Key Highlights` connect `App.jsx` to `usePermissions`, `Phase 3 Completion Report — PustakHub`, `User`?**
-  _High betweenness centrality (0.121) - this node is a cross-community bridge._
-- **Why does `useAuth()` connect `App.jsx` to `react`, `UserDetailsPage.jsx`, `DashboardPreviewPage.jsx`, `Navbar.jsx`, `usePermissions`, `AuditPage.jsx`, `react-router-dom`?**
-  _High betweenness centrality (0.067) - this node is a cross-community bridge._
+  _High betweenness centrality (0.112) - this node is a cross-community bridge._
+- **Why does `useAuth()` connect `App.jsx` to `react`, `HomePage.jsx`, `DashboardPreviewPage.jsx`, `Navbar.jsx`, `usePermissions`, `react-router-dom`?**
+  _High betweenness centrality (0.065) - this node is a cross-community bridge._
 - **Are the 80 inferred relationships involving `User` (e.g. with `_reconcile_admin()` and `AuditService`) actually correct?**
   _`User` has 80 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 41 inferred relationships involving `AuditAction` (e.g. with `execute_create_admin()` and `execute_reconcile_admin()`) actually correct?**
