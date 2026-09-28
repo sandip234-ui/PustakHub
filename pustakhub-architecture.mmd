@@ -1,0 +1,130 @@
+flowchart TB
+    subgraph UserLayer["User Layer"]
+        User["User"]
+    end
+
+    subgraph FrontendLayer["Frontend Layer"]
+        React["React 19 SPA<br/>Vite + Tailwind CSS v4"]
+        Router["React Router v7<br/>Protected Routes"]
+        Axios["Axios API Client<br/>JWT Interceptor + Token Refresh"]
+        QR["Local QR Generator<br/>qrcode.react"]
+        
+        React --> Router
+        Router --> Axios
+        Axios --> QR
+    end
+
+    subgraph BackendLayer["Backend Layer"]
+        subgraph SecurityMiddleware["Security Middleware Pipeline"]
+            CORS["CORS Middleware"]
+            SizeLimit["Request Size Limit<br/>2MB Max"]
+            AuditContext["Audit Context<br/>IP + User-Agent"]
+            RateLimit["Rate Limiting<br/>Redis Sliding Window"]
+            SecHeaders["Security Headers<br/>CSP, HSTS, X-Frame"]
+            
+            CORS --> SizeLimit --> AuditContext --> RateLimit --> SecHeaders
+        end
+
+        subgraph FastAPIRouters["FastAPI Modular Routers"]
+            AuthRouter["/api/v1/auth<br/>Register, Login, MFA, Reset"]
+            RBACRouter["/api/v1/roles & permissions"]
+            UserRouter["/api/v1/users"]
+            CatalogRouter["/api/v1/books, categories, copies"]
+            CircRouter["/api/v1/borrow, fines"]
+            AuditRouter["/api/v1/audit/logs"]
+            RealtimeRouter["/api/v1/realtime/ws<br/>WebSocket"]
+        end
+
+        subgraph CoreServices["Core Services"]
+            AuthService["AuthService<br/>Argon2id + JWT + OTP"]
+            CryptoService["Encryption Service<br/>AES-256-GCM"]
+            RBACService["Permission Service<br/>Dynamic DB-Backed RBAC"]
+            CatalogService["Catalog Service<br/>Books + Inventory"]
+            CircService["Circulation Service<br/>Row-Level Locking"]
+            AuditService["Audit Service<br/>Redaction + Logging"]
+            RealtimeService["Realtime Manager<br/>WebSocket + RBAC Filtering"]
+        end
+    end
+
+    subgraph DataLayer["Data & Infrastructure Layer"]
+        subgraph PostgreSQL["PostgreSQL 17"]
+            UsersTable["users<br/>Encrypted MFA Secrets"]
+            SessionsTable["user_sessions<br/>Hashed Refresh Tokens"]
+            RBACTables["roles, permissions<br/>user_roles, role_permissions"]
+            CatalogTables["categories, books<br/>book_copies"]
+            CircTables["borrow_records, fines"]
+            AuditTable["audit_logs<br/>Immutable Security Trail"]
+        end
+
+        subgraph Redis["Redis 7"]
+            OTPCache["Registration OTP<br/>TTL 5min"]
+            ResetCache["Password Reset Tokens<br/>TTL 15min"]
+            MFACache["MFA Challenge<br/>TTL 5min"]
+            RateLimitCache["Rate Limiting<br/>Sliding Window ZSET"]
+            PubSub["Pub/Sub Channel<br/>Realtime Events"]
+        end
+
+        subgraph ExternalServices["External Services"]
+            SMTP["SMTP/Email Service<br/>OTP + Password Reset"]
+        end
+    end
+
+    %% User Flow
+    User --> React
+
+    %% Frontend to Backend
+    Axios -->|HTTP/JSON<br/>Bearer JWT| CORS
+
+    %% Middleware Pipeline
+    SecHeaders --> AuthRouter
+    SecHeaders --> RBACRouter
+    SecHeaders --> UserRouter
+    SecHeaders --> CatalogRouter
+    SecHeaders --> CircRouter
+    SecHeaders --> AuditRouter
+    SecHeaders --> RealtimeRouter
+
+    %% Routers to Services
+    AuthRouter --> AuthService
+    AuthRouter --> CryptoService
+    RBACRouter --> RBACService
+    UserRouter --> RBACService
+    CatalogRouter --> CatalogService
+    CircRouter --> CircService
+    AuditRouter --> AuditService
+    RealtimeRouter --> RealtimeService
+
+    %% Services to Data Layer
+    AuthService --> PostgreSQL
+    AuthService --> Redis
+    CryptoService --> PostgreSQL
+    RBACService --> PostgreSQL
+    CatalogService --> PostgreSQL
+    CircService --> PostgreSQL
+    AuditService --> PostgreSQL
+    RealtimeService --> Redis
+
+    %% Rate Limiting
+    RateLimit -->|Lua Script| RateLimitCache
+
+    %% Realtime Pub/Sub
+    RealtimeService --> PubSub
+
+    %% Email Service
+    AuthService --> SMTP
+
+    %% WebSocket Flow
+    User -->|WebSocket<br/>JWT Auth| RealtimeRouter
+
+    %% Style
+    classDef userLayer fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef frontendLayer fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef backendLayer fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    classDef dataLayer fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef externalLayer fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+
+    class User userLayer
+    class React,Router,Axios,QR frontendLayer
+    class SecurityMiddleware,FastAPIRouters,CoreServices backendLayer
+    class PostgreSQL,Redis dataLayer
+    class SMTP externalLayer
